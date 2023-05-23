@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Calculator</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+</head>
+
+<body>
+    <main>
+        <div>
+            <div class="output">
+                <div id="inputTexts">0</div>
+                <div id="resultTexts">0</div>
+            </div>
+            <div class="main-calc">
+                <div class="numbers">
+                    <div class="last-btn">
+                        <button type="button" class="refresh-btn">AC</h1>
+                    </div>
+                    <div>
+                        <h2 onclick="clickOnNumber(7)" class="number-7">7</h2>
+                        <h2 onclick="clickOnNumber(8)" class="number-8">8</h2>
+                        <h2 onclick="clickOnNumber(9)" class="number-9">9</h2>
+                    </div>
+                    <div>
+                        <h2 onclick="clickOnNumber(2)" class="number-4">4</h2>
+                        <h2 onclick="clickOnNumber(5)" class="number-5">5</h2>
+                        <h2 onclick="clickOnNumber(6)" class="number-6">6</h2>
+                    </div>
+                    <div>
+                        <h2 onclick="clickOnNumber(1)" class="number-1">1</h2>
+                        <h2 onclick="clickOnNumber(2)" class="number-2">2</h2>
+                        <h2 onclick="clickOnNumber(3)" class="number-3">3</h2>
+                    </div>
+                    <div>
+                        <h2 onclick="clickOnNumber('.')" class="number-dot">.</h2>
+                        <h2 onclick="clickOnNumber('0')" class="number-0">0</h2>
+                        <h2 class="ans">Ans</h2>
+                    </div>
+                </div>
+                <div class="operators">
+                    <h1 class="remove">&#x2190</h1>
+                    <h1 class="plus">+</h1>
+                    <h1 class="minus">-</h1>
+                    <h1 class="multi">x</h1>
+                    <h1 class="divide">&#xF7</h1>
+                    <h1 class="btn equal">=</h1>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+
+    <script src="Javascript/calc.js"></script>
+    <script src="Javascript/script.js"></script>
+</body>
+
+</html>
