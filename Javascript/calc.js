@@ -17,7 +17,6 @@ divideSign.addEventListener("click", division)
 equalSign.addEventListener("click", result);
 
 
-
 // Main Calculation
 let outputText = document.getElementById("inputTexts");
 let valueTexts = outputText.textContent;
@@ -27,6 +26,12 @@ function calculation(input) {
     console.log(eval(input));
 
     return eval(input);
+}
+
+// Percentage
+function percentage() {
+    outputText.innerHTML += " % ";
+    calculation(outputText.textContent);
 }
 
 // Addition
