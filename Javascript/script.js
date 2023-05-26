@@ -34,12 +34,10 @@ function clickOnNumber(num) {
     initialResult = calculation(outputTexts.textContent);
 
     primaryResult(initialResult);
-
-    console.log(outputTexts.textContent)
-    console.log(initialResult)
 }
 
 function bracket(element) {
+    
     outputReset(outputTexts);
 
     outputTexts.innerHTML += element;
@@ -47,9 +45,6 @@ function bracket(element) {
     initialResult = calculation(outputTexts.textContent);
 
     primaryResult(initialResult);
-
-    console.log(outputTexts.textContent)
-    console.log(initialResult)
 }
 
 function answerAdd() {
@@ -63,7 +58,6 @@ function answerAdd() {
     inputNumber = Number(inputValue);
 
     outputTexts.innerHTML += `${inputNumber}`;
-    console.log(outputTexts.textContent.split(" ").length)
     if (outputTexts.textContent.split(" ").length === 1) {
         resultTexts.innerHTML = "Ans";
     }
@@ -73,8 +67,6 @@ function answerAdd() {
 
         primaryResult(initialResult);
     }
-
-    console.log(outputTexts.textContent);
 }
 
 
