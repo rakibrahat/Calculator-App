@@ -5,6 +5,7 @@ const minusSign = document.querySelector(".minus");
 const multiplySign = document.querySelector(".multi");
 const divideSign = document.querySelector(".divide");
 const equalSign = document.querySelector(".equal");
+const percentSign = document.querySelector(".percent");
 
 
 
@@ -15,12 +16,14 @@ plusSign.addEventListener("click", add);
 multiplySign.addEventListener("click", multiply);
 divideSign.addEventListener("click", division)
 equalSign.addEventListener("click", result);
+percentSign.addEventListener("click", percentage);
 
 
 
 // Main Calculation
 let outputText = document.getElementById("inputTexts");
 let valueTexts = outputText.textContent;
+
 
 function calculation(input) {
     // let values = outputTexts;
@@ -29,7 +32,7 @@ function calculation(input) {
     let len = values.length;
 
     for (let i = 0; i < len; i++) {
-        if(!isNaN(values[i])) {
+        if (!isNaN(values[i])) {
             values[i] = parseFloat(values[i]);
         }
     }
@@ -65,7 +68,9 @@ function calculation(input) {
             if ((values[i + 1] === "*" && i === 0)) {
                 total = values[i];
             }
-            total *= values[i];
+            else if (values[i - 1] === "*") {
+                total *= values[i];
+            }
             console.log(total);
             operator = "*";
             console.log(operator)
@@ -83,13 +88,24 @@ function calculation(input) {
             operator = "/";
             console.log(operator)
         }
-        else if (values[i].toString().match(/[*+-/]/ig)){
+        else if (values[i] === "%") {
+            if (total === 0) {
+                total = 1;
+            }
+
+            total /= 100;
+
+            console.log(total);
+            operator = "%";
+            console.log(operator)
+        }
+        else if (values[i].toString().match(/[%*+-/]/ig) || isNaN(values[i])) {
             total = total;
             console.log(total)
             operator = "opp";
             console.log(operator)
         }
-        else if(Number(values[i])) {
+        else if (Number(values[i])) {
             total = values[i];
             console.log(total)
             operator = "numb";
@@ -108,6 +124,12 @@ function calculation(input) {
     return total;
 }
 
+// Percentage
+function percentage() {
+    outputText.innerHTML += " % ";
+    calculation(outputText.textContent);
+}
+
 // Addition
 function add() {
     outputTexts.innerHTML += " + ";
@@ -118,7 +140,6 @@ function minus() {
     outputTexts.innerHTML += " - ";
 
 }
-
 
 // Multiplication
 function multiply() {
@@ -138,6 +159,7 @@ function result() {
     calculation(outputText.textContent);
 
     lastResult = calculation(outputText.textContent);
+
     outputTexts.innerHTML = lastResult;
     resultTexts.innerHTML = "Ans";
     console.log(lastResult)
@@ -150,7 +172,14 @@ function deleteTheLastChar() {
     if (outputTexts.textContent[outputTexts.textContent.length - 1] === " ") {
         outputTexts.innerHTML = outputTexts.textContent.slice(0, -3);
     }
+    else if (outputTexts.textContent === "0") {
+        outputTexts.innerHTML = "0";
+    }
     else {
         outputTexts.innerHTML = outputTexts.textContent.slice(0, -1);
     }
+
+    initialResult = calculation(outputTexts.textContent);
+
+    primaryResult(initialResult);
 }
