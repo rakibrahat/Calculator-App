@@ -58,6 +58,12 @@ function answerAdd() {
 
 function primaryResult(initialResult) {
     resultTexts.innerHTML = initialResult;
+    if (resultTexts.textContent === "Error") {
+        resultTexts.innerHTML = "0";
+    }
+    if (outputTexts.textContent === "") {
+        outputTexts.innerHTML = "0";
+    }
 }
 
 
