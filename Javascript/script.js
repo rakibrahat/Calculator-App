@@ -19,6 +19,7 @@ let outputTexts = document.getElementById("inputTexts");
 const ans = document.querySelector(".ans");
 
 
+
 // Adding Event Listeners For Numbers
 ans.addEventListener("click", answerAdd);
 
@@ -29,6 +30,19 @@ function clickOnNumber(num) {
     outputReset(outputTexts);
 
     outputTexts.innerHTML += `${num}`;
+
+    initialResult = calculation(outputTexts.textContent);
+
+    primaryResult(initialResult);
+
+    console.log(outputTexts.textContent)
+    console.log(initialResult)
+}
+
+function bracket(element) {
+    outputReset(outputTexts);
+
+    outputTexts.innerHTML += element;
 
     initialResult = calculation(outputTexts.textContent);
 
