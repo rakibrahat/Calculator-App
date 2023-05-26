@@ -7,7 +7,7 @@ resultTexts.innerHTML = "";
 
 let inputValue;
 let inputNumber;
-let lastResult = 0;
+let lastResult;
 let lastAnswer;
 let initialResult;
 
@@ -35,6 +35,7 @@ function clickOnNumber(num) {
     primaryResult(initialResult);
 
     console.log(outputTexts.textContent)
+    console.log(initialResult)
 }
 
 function answerAdd() {
@@ -48,9 +49,16 @@ function answerAdd() {
     inputNumber = Number(inputValue);
 
     outputTexts.innerHTML += `${inputNumber}`;
-    resultTexts.innerHTML = "Ans";
+    console.log(outputTexts.textContent.split(" ").length)
+    if (outputTexts.textContent.split(" ").length === 1) {
+        resultTexts.innerHTML = "Ans";
+    }
+    else {
 
-    lastResult = 0;
+        initialResult = calculation(outputTexts.textContent);
+
+        primaryResult(initialResult);
+    }
 
     console.log(outputTexts.textContent);
 }
@@ -76,7 +84,7 @@ function refresh() {
 }
 
 function outputReset(htmlContent) {
-    if(htmlContent.textContent === "0" || htmlContent.textContent === `${lastResult}`){
+    if (htmlContent.textContent === "0" || htmlContent.textContent === `${lastResult}`) {
         htmlContent.innerHTML = "";
     }
 }
