@@ -5,7 +5,6 @@ const minusSign = document.querySelector(".minus");
 const multiplySign = document.querySelector(".multi");
 const divideSign = document.querySelector(".divide");
 const equalSign = document.querySelector(".equal");
-const percentSign = document.querySelector(".percent");
 
 
 
@@ -26,102 +25,9 @@ let valueTexts = outputText.textContent;
 
 
 function calculation(input) {
-    // let values = outputTexts;
-    let str = input;
-    let values = str.split(" ");
-    let len = values.length;
+    console.log(eval(input));
 
-    for (let i = 0; i < len; i++) {
-        if (!isNaN(values[i])) {
-            values[i] = parseFloat(values[i]);
-        }
-    }
-
-    console.log(len)
-    console.log(values)
-
-    // let total = eval(values);
-    let total = 0;
-    let operator;
-
-    for (let i = 0; i < len; i++) {
-
-        if ((values[i + 1] === "+" && i === 0) || values[i - 1] === "+") {
-            total += values[i];
-            console.log(total);
-            operator = "+";
-            console.log(operator)
-        }
-        else if ((values[i + 1] === "-" && i === 0) || values[i - 1] === "-") {
-            if ((values[i + 1] === "-" && i === 0)) {
-                total = values[i];
-                console.log(total);
-            }
-            else if (values[i - 1] === "-") {
-                total -= values[i];
-                console.log(total);
-            }
-            operator = "+";
-            console.log(operator)
-        }
-        else if ((values[i + 1] === "*" && i === 0) || values[i - 1] === "*") {
-            if ((values[i + 1] === "*" && i === 0)) {
-                total = values[i];
-            }
-            else if (values[i - 1] === "*") {
-                total *= values[i];
-            }
-            console.log(total);
-            operator = "*";
-            console.log(operator)
-        }
-        else if ((values[i + 1] === "/" && i === 0) || values[i - 1] === "/") {
-            if ((values[i + 1] === "/" && i === 0)) {
-                total = values[i];
-                console.log(total);
-            }
-            else if (values[i - 1] === "/") {
-                total /= values[i];
-                console.log(total);
-            }
-            console.log(total);
-            operator = "/";
-            console.log(operator)
-        }
-        else if (values[i] === "%") {
-            if (total === 0) {
-                total = 1;
-            }
-
-            total /= 100;
-
-            console.log(total);
-            operator = "%";
-            console.log(operator)
-        }
-        else if (values[i].toString().match(/[%*+-/]/ig) || isNaN(values[i])) {
-            total = total;
-            console.log(total)
-            operator = "opp";
-            console.log(operator)
-        }
-        else if (Number(values[i])) {
-            total = values[i];
-            console.log(total)
-            operator = "numb";
-            console.log(operator)
-        }
-        else {
-            total = "Error";
-            console.log(total)
-            operator = "err";
-            console.log(operator)
-        }
-    }
-
-    console.log(total);
-    resultTexts.innerHTML = total;
-    return total;
+    return eval(input);
 }
 
 // Percentage
@@ -183,3 +89,108 @@ function deleteTheLastChar() {
 
     primaryResult(initialResult);
 }
+
+
+
+
+
+
+
+// function calculation(input) {
+//     // let values = outputTexts;
+//     let str = input;
+//     let values = str.split(" ");
+//     let len = values.length;
+
+//     for (let i = 0; i < len; i++) {
+//         if (!isNaN(values[i])) {
+//             values[i] = parseFloat(values[i]);
+//         }
+//     }
+
+//     console.log(len)
+//     console.log(values)
+
+//     // let total = eval(values);
+//     let total = 0;
+//     let operator;
+
+//     for (let i = 0; i < len; i++) {
+
+//         if ((values[i + 1] === "+" && i === 0) || values[i - 1] === "+") {
+//             total += values[i];
+//             console.log(total);
+//             operator = "+";
+//             console.log(operator)
+//         }
+//         else if ((values[i + 1] === "-" && i === 0) || values[i - 1] === "-") {
+//             if ((values[i + 1] === "-" && i === 0)) {
+//                 total = values[i];
+//                 console.log(total);
+//             }
+//             else if (values[i - 1] === "-") {
+//                 total -= values[i];
+//                 console.log(total);
+//             }
+//             operator = "+";
+//             console.log(operator)
+//         }
+//         else if ((values[i + 1] === "*" && i === 0) || values[i - 1] === "*") {
+//             if ((values[i + 1] === "*" && i === 0)) {
+//                 total = values[i];
+//             }
+//             else if (values[i - 1] === "*") {
+//                 total *= values[i];
+//             }
+//             console.log(total);
+//             operator = "*";
+//             console.log(operator)
+//         }
+//         else if ((values[i + 1] === "/" && i === 0) || values[i - 1] === "/") {
+//             if ((values[i + 1] === "/" && i === 0)) {
+//                 total = values[i];
+//                 console.log(total);
+//             }
+//             else if (values[i - 1] === "/") {
+//                 total /= values[i];
+//                 console.log(total);
+//             }
+//             console.log(total);
+//             operator = "/";
+//             console.log(operator)
+//         }
+//         else if (values[i] === "%") {
+//             if (total === 0) {
+//                 total = 1;
+//             }
+
+//             total /= 100;
+
+//             console.log(total);
+//             operator = "%";
+//             console.log(operator)
+//         }
+//         else if (values[i].toString().match(/[%*+-/]/ig) || isNaN(values[i])) {
+//             total = total;
+//             console.log(total)
+//             operator = "opp";
+//             console.log(operator)
+//         }
+//         else if (Number(values[i])) {
+//             total = values[i];
+//             console.log(total)
+//             operator = "numb";
+//             console.log(operator)
+//         }
+//         else {
+//             total = "Error";
+//             console.log(total)
+//             operator = "err";
+//             console.log(operator)
+//         }
+//     }
+
+//     console.log(total);
+//     resultTexts.innerHTML = total;
+//     return total;
+// }
