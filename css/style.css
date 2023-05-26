@@ -106,8 +106,25 @@ main > div {
     align-items: center;
 }
 
-.zeros {
-    visibility: hidden;
+
+.ac-btn {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.ac-btn > button {
+    width: 50%;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border: none;
+    background-color: #ededed;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 .numbers > div > h2 {
@@ -146,6 +163,11 @@ main > div {
     border-bottom: 0.5px solid #c5c5c5;
 }
 
+.percent {
+    background-color: #dfdfdf;
+    border-bottom: 0.5px solid #c5c5c5;
+}
+
 .plus {
     background-color: #dfdfdf;
     border-bottom: 0.5px solid #c5c5c5;
@@ -168,24 +190,4 @@ main > div {
 .operators > .btn {
     background-color: #898989;
     color: #fff;
-}
-
-.last-btn {
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
-.last-btn > button {
-    width: 50%;
-    padding: 10px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    border: none;
-    background-color: #ededed;
-    border: 1px solid #d4d4d4;
-    border-radius: 3px;
-    cursor: pointer;
 }
