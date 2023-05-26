@@ -29,12 +29,6 @@ function calculation(input) {
     return eval(input);
 }
 
-// Percentage
-function percentage() {
-    outputText.innerHTML += " % ";
-    calculation(outputText.textContent);
-}
-
 // Addition
 function add() {
     outputTexts.innerHTML += " + ";
